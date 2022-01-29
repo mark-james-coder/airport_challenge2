@@ -11,4 +11,9 @@ attr_reader :hangar
     @hangar.push plane
   end
 
+  def take_off(plane)
+    plane.status = 'flying'
+    @hangar.pop
+  end
+
 end
