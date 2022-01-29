@@ -1,3 +1,5 @@
+require_relative 'weather'
+
 class Airport
 
 attr_reader :hangar, :capacity
@@ -5,10 +7,10 @@ attr_accessor :weather
 
 DEFAULT_CAPACITY = 5
 
-  def initialize(capacity=DEFAULT_CAPACITY)
+  def initialize(capacity=DEFAULT_CAPACITY, weather: Weather.new)
     @hangar = []
     @capacity = capacity
-    @weather = 'calm' unless rand(4) > 2
+    @weather = weather.condition
   end
 
   def land(plane)
