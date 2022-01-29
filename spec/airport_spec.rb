@@ -19,4 +19,9 @@ describe Airport do
   it 'has a default capacity of 5 planes' do
     expect(subject.capacity).to eq 5
   end
+  it 'prevents landing when the airport is full' do
+    allow(plane).to receive(:status=).with("landed")
+    subject.capacity.times { subject.land(plane) }
+    expect { subject.land(plane) }.to raise_error "Airport is full"
+  end
 end
