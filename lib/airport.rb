@@ -19,6 +19,7 @@ DEFAULT_CAPACITY = 5
   end
 
   def take_off(plane)
+    fail "Plane cannot take off due to stormy weather" if stormy?
     plane.status = 'flying'
     @hangar.pop
   end

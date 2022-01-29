@@ -32,8 +32,13 @@ describe Airport do
   it 'prevents landing when weather is stormy' do
     airport = Airport.new
     airport.weather = "stormy"
-    p "the weather is #{airport.weather}"
     allow(plane).to receive(:status=).with("landed")
     expect { airport.land(plane) }.to raise_error "Plane cannot land due to stormy weather"
+  end
+  it 'prevents takeoff when weather is stormy' do
+    airport = Airport.new
+    airport.weather = "stormy"
+    allow(plane).to receive(:status=).with("flying")
+    expect { airport.take_off(plane) }.to raise_error "Plane cannot take off due to stormy weather"
   end
 end
