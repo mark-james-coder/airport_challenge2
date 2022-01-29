@@ -5,11 +5,13 @@ describe Airport do
   let(:plane) { double :plane }
 
   it 'instructs a plane to land' do
+    subject.weather = "calm"
     allow(plane).to receive(:status=).with("landed")
     subject.land(plane)
     expect(subject.hangar[0]).to eq plane
   end
   it 'instructs a plane to take off' do
+    subject.weather = "calm"
     allow(plane).to receive(:status=).with("landed")
     subject.land(plane)
     allow(plane).to receive(:status=).with("flying")
@@ -25,6 +27,7 @@ describe Airport do
     expect(airport.capacity).to eq num
   end
   it 'prevents landing when the airport is full' do
+    subject.weather = "calm"
     allow(plane).to receive(:status=).with("landed")
     subject.capacity.times { subject.land(plane) }
     expect { subject.land(plane) }.to raise_error "Airport is full"
