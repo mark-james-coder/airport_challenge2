@@ -16,4 +16,7 @@ describe Airport do
     subject.take_off(plane)
     expect(subject.hangar[0]).to eq nil
   end
+  it 'has a default capacity of 5 planes' do
+    expect(subject.capacity).to eq 5
+  end
 end
