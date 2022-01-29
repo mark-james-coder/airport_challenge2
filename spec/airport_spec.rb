@@ -29,4 +29,11 @@ describe Airport do
     subject.capacity.times { subject.land(plane) }
     expect { subject.land(plane) }.to raise_error "Airport is full"
   end
+  it 'prevents landing when weather is stormy' do
+    airport = Airport.new
+    airport.weather = "stormy"
+    p "the weather is #{airport.weather}"
+    allow(plane).to receive(:status=).with("landed")
+    expect { airport.land(plane) }.to raise_error "Plane cannot land due to stormy weather"
+  end
 end
