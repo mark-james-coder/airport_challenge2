@@ -19,6 +19,8 @@
 
 ## The Challenge
 
+I revisted this challenge and completed it again as a refresher. This time around, I have automated my feature tests - found in spec/feature_spec.rb. These tests output a story, whilst testing a majority of the features of the code, before ending in an intentional runtime error.
+
 We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  
 
 ### Features:
