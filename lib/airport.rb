@@ -15,14 +15,14 @@ DEFAULT_CAPACITY = 5
 
   def land(plane)
     fail "Airport is full" if full?
-    fail "Plane cannot land due to stormy weather" if @weather != 'calm'
-    plane.status = 'landed'
+    fail "Plane cannot land due to stormy weather" if @weather != :calm
+    plane.status = :landed
     @hangar.push plane
   end
 
   def take_off(plane)
-    fail "Plane cannot take off due to stormy weather" if @weather != 'calm'
-    plane.status = 'flying'
+    fail "Plane cannot take off due to stormy weather" if @weather != :calm
+    plane.status = :flying
     @hangar.pop
   end
 
