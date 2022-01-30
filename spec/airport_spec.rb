@@ -21,7 +21,7 @@ describe Airport do
   it 'has a default capacity of 5 planes' do
     expect(subject.capacity).to eq 5
   end
-  it 'has a default capacity that can be overridden' do
+  it 'has a default capacity that can be overridden at instantiation' do
     num = rand(10)
     airport = Airport.new(num)
     expect(airport.capacity).to eq num
